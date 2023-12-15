@@ -1,8 +1,7 @@
 require("../config/mongoAtlasConnection.js");
 const Tale = require("../models/talesSchema.js");
 const {app, storage, db, auth} = require('../config/firebase.js');
-
-
+import { getStorage, ref, getDownloadURL } from "firebase/storage";
 
 
 // la función de crear lo que hará será: 1, recoger los datos, 2. guarda en cloudstore la imagen y el audio y devuelve la url generada, 3. crea el nuevo Tale y retorna una alerta o mensaje de todo ok. 
@@ -11,9 +10,20 @@ const createTale = async (req, res) => {
     try {
       // recogemos del front todo el objeto y lo guardamos cada dato en una variable, destructuring. recibe lo subido a firestore y descargado
 
-      // const {title, character, storie, image, audio} = req.body;   
+      const {title, character, storie, image, audio} = req.body;         
+      
+      const storageImgRef = ref(storage, `imagenes/${image}`);  //referencia a la ubicación de carpeta imágenes
+      const storageAudioRef = ref(storage, `audiolibros/${audio}`); //referencia a la unicación de la carpeta audiolibros
 
-      const newTale = new Tale(req.body);
+      // subimos los datos a sus referencias, es decir la ubicacion que le hemos dicho arriba
+     
+
+      uploadBytes(storageImgRef, image).then((snapshot) => {
+        console.log('Uploaded an image!');
+      });
+      uploadBytes(storageAudioRef, audio).then((snapshot) => {
+        console.log('Uploaded an image!');
+      });
 
       const savedTale = await newTale.save();  //guardamos el cuento que hemos recibido
         res.status(200).json(savedTale);   //si todo va guay, le mandamos al front este mensajito
