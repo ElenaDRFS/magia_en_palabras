@@ -10,6 +10,7 @@ const createTale = async (req, res) => {
     try {
       const newTale = new Tale(req.body);
       console.log(req.body)
+
       const savedTale = await newTale.save();  //guardamos el cuento que hemos recibido
       res.json(savedTale);   //si todo va guay, le mandamos al front este mensajito
     } catch (error) {

@@ -1,0 +1,27 @@
+@import "../utils/mixin.scss";
+@import "../utils/variables.scss";
+
+
+form{
+  
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10%;
+
+    label{
+        font-size: large;
+    }
+
+    .inputs{
+        @include inputDesing;
+        margin-bottom:3%;
+        margin-left: 15%;
+        margin-right: 15%;
+    }
+
+    .submit-button{
+        @include submitButtonDesing
+    }
+
+}
+    
