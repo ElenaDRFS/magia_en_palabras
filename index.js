@@ -1,4 +1,5 @@
 const express = require("express");
+require("dotenv").config();
 const app = express();
 const port = 3000;
 const morgan = require("./middlewares/morgan");
@@ -9,6 +10,7 @@ require("./config/mongoAtlasConnection"); //nos conectamos a Atlas
 
 
 const apiRoutes = require("./routes/api.routes");
+app.use(express.urlencoded({ extended: true }));
 
 app.use(morgan(":method :host :status :url :response-time ms :body"));
 // app.use(
