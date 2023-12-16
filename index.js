@@ -2,17 +2,13 @@ const express = require("express");
 const app = express();
 const port = 3000;
 const morgan = require("./middlewares/morgan");
-const Tale = require("./models/talesSchema");
+require('dotenv').config();
+require("./config/mongoAtlasConnection"); //nos conectamos a Atlas
 // const helmet = require('helmet');
 
-// const viewsRoutes = require("./routes/views.routes");
 const apiRoutes = require("./routes/api.routes");
-
-require("dotenv").config();
-require("./config/mongoAtlasConnection"); //nos conectamos a Atlas
-
-
-
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }))
 app.use(morgan(":method :host :status :url :response-time ms :body"));
 // app.use(
 //     //fix de helmet para que se muestren las imagenes de las tarjetas
@@ -28,7 +24,7 @@ app.use(morgan(":method :host :status :url :response-time ms :body"));
 
 //Rutas
 // app.use("/", viewsRoutes);
-// app.use("/api", apiRoutes); //aquellas que interactuan con la bbdd
+app.use("/api", apiRoutes); //aquellas que interactuan con la bbdd
 
 // Para rutas no existentes
 app.use("*", (req, res) => {
