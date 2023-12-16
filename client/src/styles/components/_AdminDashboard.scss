@@ -1,0 +1,11 @@
+@import "../utils/mixin.scss";
+@import "../utils/variables.scss";
+
+section {
+
+    .submit-button{
+        @include submitButtonDesing;
+        font-style: italic;
+        text-decoration: none;
+    }
+}

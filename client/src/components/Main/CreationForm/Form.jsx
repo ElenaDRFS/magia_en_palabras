@@ -5,17 +5,23 @@ const Form = () => {
   const handleSubmit = () => {
 
   }
-  return <form>
+  return <form className="login-form">
 
     <fieldset>
       <legend>Rellena todos los campos para crear un nuevo cuento</legend>
-      <label htmlFor="title">Título<input type="text" name="title" /></label><br />
-      <label htmlFor="character">Personaje principal<input type="text" name="character"/></label><br />
-      <textarea name="" id="" cols="30" rows="10" placeholder="Érase una vez..."></textarea><br />
-      <label htmlFor=""><input type="file" name="img" id="img" /></label><br />
-      <label htmlFor=""><input type="file" name="audio" id="audio" /></label><br />
-      <input type="submit" value="Crear" />
+      <label  htmlFor="title">Título</label>
+      <input className="inputs"  type="text" name="title" />
+      <label htmlFor="character">Personaje principal</label>
+      <input className="inputs"  type="text" name="character"/>
+      <textarea name="storie" id="storie" cols="30" rows="10" placeholder="Érase una vez..."></textarea>
+      <label htmlFor="img">Imagen</label>
+      <input type="file" name="img" id="img" />
+      <label htmlFor="audio">Audiolibro</label>
+      <input type="file" name="audio" id="audio" />
+
+      
     </fieldset>
+    <button className="submit-button"type="submit">Empezar</button>
 
 
   </form>;

@@ -48,9 +48,10 @@ const handleSubmit = (e) => {
         <Header/>
         <Main/>
       </BrowserRouter>
+        <Footer/>
       
       
-      <Footer/>
+     
       {/* <form onSubmit={handleSubmit} className='form'>
         <input type='file' />
         <button type='submit'>Upload</button>

@@ -43,22 +43,27 @@ const RegistrationForm = () => {
     }
   };
 
+  const handleBack = () => {  
+    navigate("/login");
+
+  }
+
   return (
+    <section>
     <form onSubmit={handleRegistration}>
       <h1>Registro</h1>
       <h3>Introduce un email y una contraseña.</h3>
-      <label>
-        Email
-        <input type="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
-      </label>
-      <br />
-      <label>
-        Contraseña
-        <input type="password" placeholder='Min. 8 caracteres y 1 número' value={password} onChange={(e) => setPassword(e.target.value)} />
-      </label>
-      <br />
-      <button type="submit">Registrar</button>
+      <label htmlFor="email">Email</label>
+      <input className="inputs" type="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
+     
+      <label htmlFor="password">Constraseña</label>
+      <input className="inputs" type="password" name="password" placeholder='Min. 8 caracteres y 1 número' value={password} onChange={(e) => setPassword(e.target.value)} />
+      
+      <button className="submit-button" type="submit">Registrar</button>
     </form>
+    <button className="normal-button" onClick={handleBack}>Inicio</button>
+
+    </section>
   );
 };
 
