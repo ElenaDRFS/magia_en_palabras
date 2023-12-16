@@ -3,17 +3,17 @@ const mongoose = require('mongoose');
 const talesDetailsSchema = {
     title: {
         type: String,
-        // required: true,
+        required: true,
         unique: true
 
     },
     character: {
         type: String,
-        // required: true
+        required: true
     },
     storie: {
         type: String,
-        // required: true
+        required: true
     },
     image: {
         type: String,

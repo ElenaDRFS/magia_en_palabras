@@ -10,6 +10,7 @@ require("./config/mongoAtlasConnection"); //nos conectamos a Atlas
 
 
 const apiRoutes = require("./routes/api.routes");
+app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use(morgan(":method :host :status :url :response-time ms :body"));
