@@ -1,3 +1,45 @@
-@import "../utils/mixin.scss";
 @import "../utils/variables.scss";
+
+img{
+    margin-top: 5%;
+    
+}
+
+.creation-form{
+display: flex;
+flex-direction: column;
+margin: auto;
+font-size: large;
+margin-top: 10%;
+
+legend{
+    margin-bottom: 6%;
+}
+
+label {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 3px; 
+    font-size: x-large;
+  }
+
+
+textarea {
+    margin: 5%;
+    background-color: beige;
+  
+
+}
+
+input[type=file]{
+    margin: 1% 5% 5% 5%;
+    border: 1px solid $dark-purple;
+    background-color: $blue;
+}
+
+button{
+    margin-bottom: 10%;
+}
+
+}
 
