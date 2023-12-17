@@ -5,6 +5,7 @@ const talesDetailsSchema = {
         type: String,
         required: true,
         unique: true
+
     },
     character: {
         type: String,
@@ -20,7 +21,7 @@ const talesDetailsSchema = {
             validator: function(url){
                 return url.endsWith('.jpg') || url.endsWith('.png') || url.endsWith('.jpeg');
             },
-            message: "Por favor, solo imágenes JPG o PNG"
+            message: "Por favor, solo imágenes JPG, PNG o JPEG"
         }
     },
     audio:{
@@ -31,6 +32,6 @@ const talesDetailsSchema = {
 
 const taleSchema = mongoose.Schema(talesDetailsSchema);
 
-const tale = mongoose.model('Tales', taleSchema);
+const tales = mongoose.model('Tales', taleSchema);
 
-module.exports = tale;
+module.exports = tales;
