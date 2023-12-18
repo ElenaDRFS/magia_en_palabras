@@ -1,0 +1,27 @@
+.character-button{
+    background-color: plum;
+    border: none;
+    border-radius: 30px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 10px;
+    margin: 10px;
+    font-size: large;
+
+    &:hover{
+        background-color: palevioletred;
+    }
+}
+
+p{
+    font-size: large;
+    margin: 5px;
+}
+
+#svg-search{
+    margin-top: 20px;
+}
+
+form{
+    margin-top: 0;
+}
