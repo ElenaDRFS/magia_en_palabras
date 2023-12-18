@@ -1,6 +1,6 @@
-import React, {useState, useEffect} from "react";
+import React from "react";
 import { Route, Routes, Navigate } from "react-router-dom";
-import axios from "axios";
+
 import SearchPage from "./SearchPage/SearchPage"
 import CreationForm from "./CreationForm/Form";
 import LogIn from "./LogIn/LogIn";
