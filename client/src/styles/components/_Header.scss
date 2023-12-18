@@ -2,12 +2,19 @@
 @import '../utils/mixin.scss';
 
 .logo{
-    width: 45vh;
+    width: 90%;
     height:auto;
-    margin-top: 10%;
-    padding: 0;
+    margin: 0;
    
 }
 
 
+@media (min-width:800px){
 
+
+    .logo{
+    width: 50%;
+    height:auto;
+   
+}
+}
