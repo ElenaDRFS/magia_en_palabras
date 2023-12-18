@@ -3,26 +3,20 @@ const mongoose = require('mongoose');
 const talesDetailsSchema = {
     title: {
         type: String,
-        required: true,
         unique: true
 
     },
     character: {
         type: String,
-        required: true
+      
     },
     storie: {
         type: String,
-        required: true
+       
     },
     image: {
-        type: String,
-        validate: {
-            validator: function(url){
-                return url.endsWith('.jpg') || url.endsWith('.png') || url.endsWith('.jpeg');
-            },
-            message: "Por favor, solo imágenes JPG, PNG o JPEG"
-        }
+        type: String, //sin validación que sino explota al recibir el string de firebase y que no finalice en .jpg
+       
     },
     audio:{
         type:String   //tipo string porque lo que almacenará será la url donde esté guardado el firebase
