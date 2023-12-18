@@ -3,10 +3,10 @@ const express = require("express");
 const router = express.Router();
 const clientControllers = require("../controllers/client.controller")
 // ruta para bbotón según el personaje
-router.get("/tales/:character", clientControllers.getTalesByCharacter);
+router.get("/characterTales/:character", clientControllers.getTalesByCharacter);
 
 // ruta para buscador por título
-router.get("/cuentos/:title", clientControllers.getTalesByTitle);
+router.get("/titleTales/:title", clientControllers.getTalesByTitle);
 
 
 
