@@ -1,0 +1,17 @@
+@import "../utils/variables.scss";
+
+#page-numbers{
+    margin: 10px;
+    font-size: x-large;
+    
+    button{
+        background-color: $gold;
+        margin: 3px;
+        border: none;
+        box-shadow: 0px 0px 10px 0px #333 inset;
+        border-radius: 20%;
+    }
+    a{
+        text-decoration: none;
+    }
+}
