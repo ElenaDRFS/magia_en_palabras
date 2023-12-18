@@ -14,6 +14,24 @@ const Form = () => {
  
   const navigate = useNavigate();
 
+    // FUNCIÓN PARA MANEJAR LA ASINCRONÍA DE SUBIR Y RECEPCIONAR DATOS. el problema que había era que se subían los datos mientras se leía el scritp y cuando llegaba a la parte de recibir el estado seguía vacío, porque el post se había ejecutado antes de que se seteara el estado, de esta manera, convirtiendo cada subida en una promesa y hacienod que se cumplan con el promise all, asegurameos que se ha seteado el estado y esos datos se reciben en post data
+  const uploadFile = (storageRef, file) => {
+    return new Promise((resolve, reject) => {
+      const uploadTask = uploadBytesResumable(storageRef, file);
+  
+      uploadTask.on(
+        "state_changed",
+        null,
+        (error) => reject(error),
+        () => {
+          getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+            resolve(downloadURL);
+          });
+        }
+      );
+    });
+  };
+
   //esta función enviará los datos del formulario a cloudstore, y al backend para recogerlos por req.body 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -23,8 +41,6 @@ const Form = () => {
     const character = event.target.character.value;
 
     const storieValue = storieRef.current.value;
-  
-
     
     
     const img = event.target[3]?.files[0]; 
@@ -37,34 +53,11 @@ const Form = () => {
    
     const storageAudioRef = ref(storage, `audiolibros/${audio.name}`); //referencia a la unicación de la carpeta audiolibros
 
-    const uploadImgTask = uploadBytesResumable(storageImgRef, img); //esta función es propia de firebase y maneja la carga del archivo a la vez que proporciona info sobre ella
-    const uploadAudioTask = uploadBytesResumable(storageAudioRef, audio); //esta función es propia de firebase y maneja la carga del archivo a la vez que proporciona info sobre ella
-  
-    // descargamos y seteamos estado con la url del storage, tanto de la imagen como del audio
-  
-    uploadImgTask.on("state_changed",
-      null, //no vamos a procesar o mostrar el progreso, por eso va null, si quisieramos mostar la carga se haría aquí el script
-      (error) => {
-        alert(error);
-      },
-      () => {
-        getDownloadURL(uploadImgTask.snapshot.ref).then((downloadURL) => {
-          setImgUrl(downloadURL)
-        });  
-      }
-    );
-  
-    uploadAudioTask.on("state_changed",
-      null,
-      (error) => {
-        alert(error);
-      },
-      () => {
-        getDownloadURL(uploadAudioTask.snapshot.ref).then((downloadURL) => {
-          setAudioUrl(downloadURL)
-        });  
-      }
-    );
+    try {
+        const [imgUrl, audioUrl] = await Promise.all([
+          uploadFile(storageImgRef, img),
+          uploadFile(storageAudioRef, audio),
+        ]);
 
 // construimos el objeto que vamos a mandar a mongo con los datos que hemos guardado en variables del form y las url de firebae storage
     const postData = {
@@ -75,8 +68,8 @@ const Form = () => {
       audio:audioUrl
 
     }
-        console.log(postData)
-    try{
+     console.log(postData)
+   
 
       const response = await axios.post("http://localhost:3000/api/createTale", postData);
      
@@ -121,4 +114,3 @@ const Form = () => {
 };
 
 export default Form;
-
