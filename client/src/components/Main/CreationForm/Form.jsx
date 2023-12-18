@@ -9,9 +9,7 @@ import Swal from "sweetalert2";
 const Form = () => {
   const storieRef = useRef(null); //usaremos el hook use ref para conseguir el texto del textarea. es como un get element by
 
-  const [imgUrl, setImgUrl] = useState(""); //alamcena la URL de la iamgen cargada. est´guardada en esa variable por lo que se puede acceder a ella
-  const [audioUrl, setAudioUrl] = useState(""); //alamcena la URL de la iamgen cargada. est´guardada en esa variable por lo que se puede acceder a ella
- 
+  const [loading, setLoading] = useState(false); // Loading state
   const navigate = useNavigate();
 
     // FUNCIÓN PARA MANEJAR LA ASINCRONÍA DE SUBIR Y RECEPCIONAR DATOS. el problema que había era que se subían los datos mientras se leía el scritp y cuando llegaba a la parte de recibir el estado seguía vacío, porque el post se había ejecutado antes de que se seteara el estado, de esta manera, convirtiendo cada subida en una promesa y hacienod que se cumplan con el promise all, asegurameos que se ha seteado el estado y esos datos se reciben en post data
@@ -54,7 +52,10 @@ const Form = () => {
     const storageAudioRef = ref(storage, `audiolibros/${audio.name}`); //referencia a la unicación de la carpeta audiolibros
 
     try {
-        const [imgUrl, audioUrl] = await Promise.all([
+
+        setLoading(true);//seteamos estado de carga
+
+        const [imgUrl, audioUrl] = await Promise.all([  //imgUrl y audioUrl son los resultados resolved de las promesas, desestructuramos en esas variables para poder mandarlas luego a post data
           uploadFile(storageImgRef, img),
           uploadFile(storageAudioRef, audio),
         ]);
@@ -85,6 +86,8 @@ const Form = () => {
 
     }catch(error){
       console.error(error)
+    } finally {
+        setLoading(false) //una vez terminada toda la promesa devolvemos el estado de carga a false para quitar spinner
     }
   
   }
@@ -102,12 +105,16 @@ const Form = () => {
 
       <textarea ref={storieRef} name="storie" id="storie" cols="30" rows="10" placeholder="Érase una vez..." required/><br />
 
+      <p>Imagen</p>
       <input type="file" name="img" id="img" required/>
 
+      <p>Audiolibro</p>
      <input type="file" name="audio" id="audio" required />     
     
-    <button className="submit-button"type="submit">Crear</button>
-
+    {/* desactivamos el botón para cambiar su letra y mostar que está cargando la subida de datos, si loading es true, pondrá cargando, cuanod cambie a false tras terminar la promesa cambia a crear */}
+     <button className="submit-button" type="submit" disabled={loading}>
+          {loading ? "Cargando..." : "Crear"}
+        </button>
 
   </form>
   </section> 
