@@ -9,12 +9,12 @@
 }
 
 
-@media (min-width:800px){
-
+@media (width > 800px){
 
     .logo{
-    width: 50%;
-    height:auto;
-   
+        margin: 0;
+        padding: 0;
+    width: 30%;
+       
 }
 }
