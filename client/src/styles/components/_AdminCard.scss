@@ -1,38 +1,48 @@
 @import "../utils/variables.scss";
 
-.card-container{
-    background-color: plum;
-    margin-left: 5px;
-    margin-top: 10%;
-    margin-bottom: 5%;
-    border-radius: 30%;
-    box-shadow: 0px 0px 10px 9px $dark-purple;
-    .card-button{
-        background-color: palevioletred;
-        margin-top: 5%;
-        padding: 5%;
-        font-size: larger;
-        border: 5px solid  white;
-        border-style:double;
-    }
+        .card-container{
+           
+            background-color: plum;
+            border-radius:50px;
+            box-shadow: 0px 0px 10px 9px $dark-purple;
+       
     
-    .card-img{
-        width: 100%;
-        border-radius: 40%;
-    }
+            #storie{
+                margin: 25px;
+                
+            } 
+        
+            .card-button{
+                background-color: palevioletred;
+                margin-top: 5%;
+                padding: 15px;
+                font-size: larger;
+                border: 5px solid  white;
+                border-style:double;
+            }
+            
+            // .card-img{
+                
+            // }
+        
+             
+               
+            .card-title{
+                font-weight: bold;
+                font-size: x-large;
+            }
+    
+        }
+        
+    
+    
+    
 
-    audio::-webkit-media-controls-panel {
-        background-color: $gold;
-        width: 20%;
-    }
-    audio::-webkit-media-controls-mute-button  {
-        background-color: white;
-        border-radius: 50%;
-    }
-   
-    .card-title{
-        font-weight: bold;
-        font-size: x-large;
-    }
+
+
+@media (width > 700px){
+  
+    
+    
+    
 }
-
