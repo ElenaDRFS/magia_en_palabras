@@ -1,4 +1,4 @@
-@import "../utils/mixin.scss";
+
 @import "../utils/variables.scss";
 
 .login-form{
@@ -14,12 +14,12 @@
     }
 
     .inputs{
-        @include inputDesing;
-    
+        
     }
  
     .submit-button{
-        @include submitButtonDesing;
+        color: aqua;
+        
 
         
     }
@@ -27,7 +27,7 @@
 
 section{
     .normal-button {
-        @include normalButtonDesing;
+       
        
     
     }

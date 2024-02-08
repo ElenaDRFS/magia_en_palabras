@@ -1,14 +1,27 @@
 @import '../utils/variables.scss';
 @import url('https://fonts.googleapis.com/css2?family=Schoolbell&family=Stalemate&display=swap');
 
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    scrollbar-width: none;
+    background: rgb(157,141,241);
+    
+}
 
 #root {
     text-align: center;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
     font-family: 'Schoolbell', cursive;
     padding: 0;
     margin: 0;
     font-size: medium;
-    background: rgb(157,141,241);
+   
 
      
 }   

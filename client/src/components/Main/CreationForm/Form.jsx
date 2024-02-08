@@ -45,9 +45,8 @@ const Form = () => {
     //seleccionamos el fichero que haya en index 0, en este caso la imagen
     const audio = event.target[4]?.files[0]; //seleccionamos el fichero audio
    
-    if (!img || !audio) return; //crucial para que se carguen los datos en el objeto a mandar, sin ella solo se setea el estado pero no se guarda en el objeto
-  
-    const storageImgRef = ref(storage, `files/${img.name}`);  //referencia a la ubicación de carpeta imágenes
+    if (!img || !audio) return; //aseguramos la recepción de fichero, ambos son requeridos
+     const storageImgRef = ref(storage, `files/${img.name}`);  //referencia a la ubicación de carpeta imágenes
    
     const storageAudioRef = ref(storage, `audiolibros/${audio.name}`); //referencia a la unicación de la carpeta audiolibros
 
