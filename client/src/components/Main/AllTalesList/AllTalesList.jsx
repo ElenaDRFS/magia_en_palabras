@@ -54,7 +54,11 @@ const AllTales = () => {
       </Link>
       <section id="page-numbers">{renderPageNumbers}</section>
 
-      {mapTales()}
+<section id="tales-section">
+{mapTales()}
+
+</section>
+      
     </div>
   );
 };

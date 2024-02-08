@@ -21,7 +21,7 @@ function CardDesign({ data }) {
             className="card-button"
             onClick={toggleDetails}
           >
-            {/* {" "} */}
+            
             {showDetails ? "Ocultar detalles" : "Ver detalles"}
           </button>
           {showDetails && (
@@ -31,7 +31,7 @@ function CardDesign({ data }) {
 
            </section>
           ) 
-          // && (<p id="storie">{data.storie}</p>)
+          
               
            
 
