@@ -1,3 +1,50 @@
 
 @import "../utils/variables.scss";
 
+
+#dashboard-section{
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    
+    article{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .dashboard-button{
+        border: none;
+        border-radius: 10px;
+        background-color: $gold;
+        width: 100%;
+        padding: 15px;
+        margin-top: 20px;
+        box-shadow: 0 0 20px 2px rgba(0, 0, 0, 0.5);
+
+
+    }
+
+    .normal-button{
+        width: 100%;
+        margin-top: 40px;
+    }
+
+}
+
+@media (width > 600px){
+    article{
+        display: flex;
+        flex-direction: row !important;
+        
+        
+
+        .dashboard-button{
+            margin-left: 20px;
+        }
+    }
+
+    .normal-button{
+        margin-bottom: 20px;
+        padding: 10px;
+    }
+}

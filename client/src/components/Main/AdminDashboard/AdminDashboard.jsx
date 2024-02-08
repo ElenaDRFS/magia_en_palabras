@@ -22,23 +22,32 @@ const Dashboard = () => {
   };
 
   return (
-    <section>
+    <section id="dashboard-section">
       <h1>¿Qué quieres hacer hoy?</h1>
-      <button type="button" className="submit-button" onClick={handleCreate}>
-        Crear un nuevo cuento
-      </button>
+      
+      <article>
+        <button
+          type="button"
+          className="dashboard-button"
+          onClick={handleCreate}
+        >
+          Crear un nuevo cuento
+        </button>
 
-      <button type="button" className="submit-button" onClick={handleEdit}>
-        Editar un cuento existente{" "}
-      </button>
+        <button type="button" className="dashboard-button" onClick={handleEdit}>
+          Editar un cuento existente{" "}
+        </button>
 
-      <button type="button" className="submit-button" onClick={handleShow}>
-        Ver todos los cuentos
-      </button>
+        <button type="button" className="dashboard-button" onClick={handleShow}>
+          Ver todos los cuentos
+        </button>
+      </article>
 
-      <button className="normal-button" onClick={logOut}>
-        Cerrar sesión
-      </button>
+      <article>
+        <button className="normal-button" onClick={logOut}>
+          Cerrar sesión
+        </button>
+      </article>
     </section>
   );
 };

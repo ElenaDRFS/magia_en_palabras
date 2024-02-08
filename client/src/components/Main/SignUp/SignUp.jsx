@@ -34,6 +34,11 @@ const RegistrationForm = () => {
 
       navigate("/login");
     } catch (error) {
+      Swal.fire({
+        title: "Upss!",
+        text: "Email en uso",
+        icon: "error",
+      });
       console.error(error.message);
     }
   };
