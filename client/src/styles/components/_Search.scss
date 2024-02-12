@@ -1,3 +1,42 @@
+@import "../utils/variables.scss";
+
+
+#welcome-section{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding-top: 30px;
+
+    #log-out{
+        margin: 0;
+        padding:0;
+        width: fit-content;
+        cursor: pointer;
+    }
+   
+
+    #search-input{
+        background-color: $blue;
+        border: none;
+        padding: 5px;
+        border-bottom-left-radius: 5px;  
+        border-top-left-radius: 5px;
+
+
+    }
+
+    #search-button{
+        background-color: $gold;
+        border: none;
+        padding: 5px;
+        border-bottom-right-radius: 5px;  
+        border-top-right-radius: 5px;
+        cursor: pointer;
+
+
+    }
+    
+}
 .character-button{
     background-color: plum;
     border: none;
@@ -7,18 +46,52 @@
     padding: 10px;
     margin: 10px;
     font-size: large;
+    cursor: pointer;
 
     &:hover{
+        box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.5);
         background-color: palevioletred;
+        
     }
 }
 
-p{
-    font-size: large;
-    margin: 5px;
+#buttons-section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    
+
+    #instructions{
+        font-size: large;
+        margin: 5px;
+        margin-left: 20px;
+        margin-right: 20px;
+        padding-bottom: 20px;
+        
+    }
+
 }
+
 
 #svg-search{
     margin-top: 20px;
+}
+
+#results{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+
+@media (width >=600px){
+
+
+#buttons-section{
+    margin-top: 50px;
+}
+
+
 }
 
