@@ -32,6 +32,8 @@ app.use(morgan(":method :host :status :url :response-time ms :body"));
 //     })
 //   );
 
+
+
 //Rutas
 app.use("/api", apiRoutes); // rutas con peticiones http ADMIN
 app.use("/api",clientRoutes); //rutas con las peticiones http CLIENT
@@ -52,7 +54,6 @@ if (process.env.NODE_ENV === 'production') {
   app.get('*', (req,res) => res.sendFile(path.resolve(__dirname, 'client', 'build','index.html')));
 }
 
-app.listen(port, () => {
-  console.log(`listening on port http://localhost:${port}`);
-  
-});
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, () => console.log(`Server started port ${PORT}`));

@@ -5,5 +5,5 @@ RUN npm install
 WORKDIR /app/client
 RUN npm install && npm run build
 WORKDIR /app
-CMD ["npm", "run", "render-postbuild"]
+CMD ["npm", "run", "deploy"]
 EXPOSE 8080
