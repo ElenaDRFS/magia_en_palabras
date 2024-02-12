@@ -38,11 +38,11 @@ app.use("/api",clientRoutes); //rutas con las peticiones http CLIENT
 
 
 // Para rutas no existentes
-app.use("*", (req, res) => {
-  res.status(404).json({
-    message: "route not found",
-  });
-});
+// app.use("*", (req, res) => {
+//   res.status(404).json({
+//     message: "route not found",
+//   });
+// });
 
 
 //* UNIÓN DE BACK Y FRONT PARA EL DESPLIEGUE
