@@ -1,4 +1,5 @@
 import React from "react";
+import reactLogo from './assets/react.svg'
 
 const Header = () => {
 
@@ -8,7 +9,8 @@ const Header = () => {
 
     </section>
     
-    <img  className="logo"src="./src/assets/img/logo_sin_fondo.webp" alt="logo" />
+    {/* <img  className="logo"src="./src/assets/img/logo_sin_fondo.webp" alt="logo" /> */}
+    <img  className="logo"src={reactLogo} alt="logo importado" />
     </section>;
 };
 
