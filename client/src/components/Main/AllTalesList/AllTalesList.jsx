@@ -15,7 +15,7 @@ const AllTales = () => {
   useEffect(() => {
     const getAllTales = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/api/tales");
+        const response = await axios.get("/api/tales");
 
         setAllTales(response.data);
       } catch (error) {

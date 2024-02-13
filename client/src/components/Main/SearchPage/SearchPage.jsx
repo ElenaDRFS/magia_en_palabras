@@ -20,7 +20,7 @@ const SearchPage = () => {
   useEffect(()=>{
     const getTalesByTitle = async () => {
       try{
-        const response = await axios.get(`http://localhost:3000/api/titleTales/${title}`)
+        const response = await axios.get(`/api/titleTales/${title}`)
         
         setResults(response.data);
 
@@ -36,7 +36,7 @@ const SearchPage = () => {
   useEffect(()=>{
     const getTalesByCharacter = async () => {
       try{
-        const response = await axios.get(`http://localhost:3000/api/characterTales/${character}`)
+        const response = await axios.get(`/api/characterTales/${character}`)
      
         setResults(response.data);
 
@@ -54,7 +54,7 @@ const SearchPage = () => {
   useEffect(()=>{
     const getAllTales = async () => {
       try{
-        const response = await axios.get("http://localhost:3000/api/tales")
+        const response = await axios.get("/api/tales")
         
         setAllTales(response.data);
 
