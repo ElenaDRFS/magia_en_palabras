@@ -17,6 +17,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "client": "npm start --prefix client",
     "server": "nodemon index.js",
+    "clientinstall": "npm install --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "start": "node index.js",
     "deploy": "concurrently \"npm run server\" \"npm run client\"",
