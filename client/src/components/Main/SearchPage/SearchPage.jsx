@@ -6,6 +6,7 @@ import Search from "./Search/Search"
 import ClientTaleList from "./ClientTaleList/ClientTaleList"
 
 
+
 const SearchPage = () => {
 
   // SEARCH SETEA TITLE, CHARACTER
@@ -18,7 +19,21 @@ const SearchPage = () => {
   const [results, setResults] = useState([]) //guardamos resultados de las búsquedas, lo pasaremos por props para pintarlos
 
   useEffect(()=>{
+    const getAllTales = async () => {
+      try{
+        const response = await axios.get("http://localhost:3000/api/tales")
+        
+        setAllTales(response.data);
+
+      }catch(error){
+        console.log(error)
+      }
+    }
+    getAllTales();
+  },[]) 
+  useEffect(()=>{
     const getTalesByTitle = async () => {
+     
       try{
         const response = await axios.get(`http://localhost:3000/api/titleTales/${title}`)
         
@@ -51,19 +66,7 @@ const SearchPage = () => {
   //siempre que se renderice el componente se lanza la petición, para la lista de todos los cuentos. siempre actualizado ya que la unica forma de modificar estos datos es desde el admin, con lo cual cuando se vuelva a esta vista, se habrá vuelto a actualizar
 
 
-  useEffect(()=>{
-    const getAllTales = async () => {
-      try{
-        const response = await axios.get("http://localhost:3000/api/tales")
-        
-        setAllTales(response.data);
-
-      }catch(error){
-        console.log(error)
-      }
-    }
-    getAllTales();
-  },[]) 
+ 
 
   return <section>
   
