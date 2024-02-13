@@ -4,6 +4,7 @@ const path = require("path");
 const app = express();
 const port = 3000;
 const morgan = require("./middlewares/morgan");
+const error404 = require('./middlewares/error404')
 const cors = require("cors");
 
 require("./config/mongoAtlasConnection"); //nos conectamos a Atlas
