@@ -51,23 +51,23 @@ const SearchPage = () => {
   //para mantener los botones actualizados hay que lanzar la peticiòn de todos los cuentos siempre, para obtener todos los protagonistas y crear los botones
 
 
-  // useEffect(()=>{
-  //   const getAllTales = async () => {
-  //     try{
-  //       const response = await axios.get("/api/tales")
+  useEffect(()=>{
+    const getAllTales = async () => {
+      try{
+        const response = await axios.get("/api/tales")
         
-  //       setAllTales(response.data);
+        setAllTales(response.data);
 
-  //     }catch(error){
-  //       console.log(error)
-  //     }
-  //   }
-  //   getAllTales();
-  // },[]) 
+      }catch(error){
+        console.log(error)
+      }
+    }
+    getAllTales();
+  },[]) 
 
   return <section>
   
-  <Search search={setTitle} press={setCharacter} /*info={allTales}*//>
+  <Search search={setTitle} press={setCharacter} info={allTales}/>
   <ClientTaleList results={results}/>
 
   </section>;

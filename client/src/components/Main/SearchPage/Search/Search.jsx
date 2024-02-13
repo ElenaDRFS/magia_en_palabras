@@ -82,10 +82,10 @@ const Search = ({ search, press, info }) => {
         </form>
       </article>
 
-      {/* <article>
+      <article>
         <p>Clica en los botones para buscar por personajes o temáticas</p>
       </article>
-      <article>{createCharacter()}</article> */}
+      <article>{createCharacter()}</article>
     </section>
   );
 };
