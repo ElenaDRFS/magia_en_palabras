@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../../assets/img/logo_sin_fondo"
+import logoSinFondo from "../../assets/img/logo_sin_fondo"
 
 const Header = () => {
 
@@ -9,7 +9,7 @@ const Header = () => {
 
     </section>
     
-    <img  className="logo"src={logo} alt="logo" />
+    <img  className="logo"src={logoSinFondo} alt="logo" />
     </section>;
 };
 
