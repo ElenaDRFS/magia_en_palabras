@@ -9,11 +9,11 @@ import { getFirestore } from "firebase/firestore";
 // Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_API_KEY_FIREBASE || 'test' ,
-  authDomain: import.meta.env.VITE_AUTH_DOMAIN,
-  projectId: "magia-en-palabras-efbd3",
-  storageBucket: "magia-en-palabras-efbd3.appspot.com",
-  messagingSenderId: "571670136331",
-  appId: "1:571670136331:web:f7f29bb41ac87771cf290e"
+  authDomain: import.meta.env.VITE_AUTH_DOMAIN || 'test',
+  projectId: "magia-en-palabras-efbd3" || 'test',
+  storageBucket: "magia-en-palabras-efbd3.appspot.com" || 'test',
+  messagingSenderId: "571670136331" || 'test',
+  appId: "1:571670136331:web:f7f29bb41ac87771cf290e" || 'test'
 };
 
 // Initialize Firebase
