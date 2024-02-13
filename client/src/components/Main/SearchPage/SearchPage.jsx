@@ -30,7 +30,7 @@ const SearchPage = () => {
     }
     getTalesByTitle();
 
-  },[title]) //cuando cambie el title, del buscador se vuelve a lanzar la petición get
+  },[title]) //cuando cambie el title, del buscador se vuelve a lanzar la petición get, lo setea search
 
 
   useEffect(()=>{
@@ -48,26 +48,26 @@ const SearchPage = () => {
   },[character]) 
 
 
-  //siempre que se renderice el componente se lanza la petición, para la lista de todos los cuentos. siempre actualizado ya que la unica forma de modificar estos datos es desde el admin, con lo cual cuando se vuelva a esta vista, se habrá vuelto a actualizar
+  //para mantener los botones actualizados hay que lanzar la peticiòn de todos los cuentos siempre, para obtener todos los protagonistas y crear los botones
 
 
-  useEffect(()=>{
-    const getAllTales = async () => {
-      try{
-        const response = await axios.get("/api/tales")
+  // useEffect(()=>{
+  //   const getAllTales = async () => {
+  //     try{
+  //       const response = await axios.get("/api/tales")
         
-        setAllTales(response.data);
+  //       setAllTales(response.data);
 
-      }catch(error){
-        console.log(error)
-      }
-    }
-    getAllTales();
-  },[]) 
+  //     }catch(error){
+  //       console.log(error)
+  //     }
+  //   }
+  //   getAllTales();
+  // },[]) 
 
   return <section>
   
-  <Search search={setTitle} press={setCharacter} info={allTales}/>
+  <Search search={setTitle} press={setCharacter} /*info={allTales}*//>
   <ClientTaleList results={results}/>
 
   </section>;
