@@ -95,7 +95,9 @@ const Form = () => {
   
   return  <section>
 
-    <Link to="/admin"><img src={arrow} alt="flecha" /></Link>
+<Link to="/admin">
+        <img src={arrow} alt="flecha" />
+      </Link>
     <form className="creation-form" onSubmit={handleSubmit}>
 
       <legend>Rellena todos los campos para crear un nuevo cuento</legend>

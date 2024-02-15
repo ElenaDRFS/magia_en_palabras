@@ -146,7 +146,9 @@ const handleDelete = async () => {
 
   return <section>
 
-  <Link to="/admin"><img src={arrow} alt="flecha" /></Link>
+<Link to="/admin">
+        <img src={arrow} alt="flecha" />
+      </Link>
   
   
   <form onSubmit={handleSubmit}>
