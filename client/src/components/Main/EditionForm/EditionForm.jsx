@@ -4,6 +4,8 @@ import axios from "axios";
 import { storage } from '../../../firebase';
 import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage";
 import Swal from "sweetalert2";
+import arrow from "/src/components/assets/img/volver.png";
+
 
 
 const EditionForm = ({data}) => {
@@ -12,7 +14,7 @@ const EditionForm = ({data}) => {
   useEffect(()=>{
     const getAllTales = async () => {
       try{
-        const response = await axios.get("http://localhost:3000/api/tales")
+        const response = await axios.get("/api/tales")
         
         setAllTales(response.data);
 
@@ -102,7 +104,7 @@ const handleSubmit = async (event) => {
        
     try{
 
-      const response = await axios.put(`http://localhost:3000/api/editTale/${selectedTitle}`, updatedData);
+      const response = await axios.put(`/api/editTale/${selectedTitle}`, updatedData);
      
       // console.log('Respuesta del servidor:', response.data);
       
@@ -123,7 +125,7 @@ const handleSubmit = async (event) => {
 const handleDelete = async () => {
   try{
 
-    const response = await axios.delete(`http://localhost:3000/api/deleteTale/${selectedTitle}`);
+    const response = await axios.delete(`/api/deleteTale/${selectedTitle}`);
    
     
     
@@ -144,7 +146,7 @@ const handleDelete = async () => {
 
   return <section>
 
-  <Link to="/admin"><img src="./volver.png" alt="flecha" /></Link>
+  <Link to="/admin"><img src={arrow} alt="flecha" /></Link>
   
   
   <form onSubmit={handleSubmit}>

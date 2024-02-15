@@ -4,6 +4,8 @@ import axios from "axios";
 import { storage } from '../../../firebase';
 import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage";
 import Swal from "sweetalert2";
+import arrow from "/src/components/assets/img/volver.png";
+
 
 
 const Form = () => {
@@ -71,7 +73,7 @@ const Form = () => {
      console.log(postData)
    
 
-      const response = await axios.post("http://localhost:3000/api/createTale", postData);
+      const response = await axios.post("/api/createTale", postData);
      
       // console.log('Respuesta del servidor:', response.data);
       
@@ -93,7 +95,7 @@ const Form = () => {
   
   return  <section>
 
-    <Link to="/admin"><img src="./volver.png" alt="flecha" /></Link>
+    <Link to="/admin"><img src={arrow} alt="flecha" /></Link>
     <form className="creation-form" onSubmit={handleSubmit}>
 
       <legend>Rellena todos los campos para crear un nuevo cuento</legend>
