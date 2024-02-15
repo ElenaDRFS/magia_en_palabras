@@ -5,6 +5,7 @@ import axios from "axios";
 import { v4 as uuidv4 } from "uuid";
 import { Link } from "react-router-dom";
 import AdminCard from "./AdminCard/AdminCard";
+import arrow from "/src/components/assets/img/volver.png";
 
 const AllTales = () => {
   const [allTales, setAllTales] = useState([]); //todos los cuentos bbdd
@@ -50,7 +51,7 @@ const AllTales = () => {
   return (
     <div>
       <Link to="/admin">
-        <img src="./src/assets/img/volver.png" alt="flecha" />
+        <img src={arrow} alt="flecha" />
       </Link>
       <section id="page-numbers">{renderPageNumbers}</section>
 
