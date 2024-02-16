@@ -11,17 +11,17 @@ import { getFirestore } from "firebase/firestore";
   console.log(import.meta.env.VITE_API_KEY_FIREBASE)
   console.log(import.meta.env.VITE_AUTH_DOMAIN)
   console.log(import.meta.env.URI_WITH_PASSWORD)
-  console.log(firebaseConfig.authDomain)
+
   
 
 
   const firebaseConfig = {
     apiKey: import.meta.env.VITE_API_KEY_FIREBASE ||'test',
-    authDomain: "magia-en-palabras-efbd3.firebaseapp.com",
-    projectId: "magia-en-palabras-efbd3",
-    storageBucket: "magia-en-palabras-efbd3.appspot.com",
-    messagingSenderId: "571670136331",
-    appId: "1:571670136331:web:f7f29bb41ac87771cf290e"
+    authDomain: "magia-en-palabras-efbd3.firebaseapp.com" ||'test' ,
+    projectId: "magia-en-palabras-efbd3" ||'test',
+    storageBucket: "magia-en-palabras-efbd3.appspot.com" ||'test',
+    messagingSenderId: "571670136331" ||'test',
+    appId: "1:571670136331:web:f7f29bb41ac87771cf290e ||'test'"
   };
 
 
