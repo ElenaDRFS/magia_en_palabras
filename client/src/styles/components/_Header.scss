@@ -2,12 +2,31 @@
 @import '../utils/mixin.scss';
 
 .logo{
-    width: 45vh;
+    width: 60%;
     height:auto;
-    margin-top: 10%;
+    margin-top: 3%;
     padding: 0;
    
 }
 
 
+@media (min-width:700px) {
+    #header-section{
+        #svg-section{
+            width: 100vw; /* Ocupa el ancho completo de la pantalla */
+            max-height: 30vh; 
+            
 
+        }
+       
+        .logo{
+            width: 30%;
+            margin-top: 0;
+           }
+
+    }
+   
+
+   
+    
+}

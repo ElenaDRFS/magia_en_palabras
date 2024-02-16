@@ -11,12 +11,12 @@ function CardDesign({data}) {
   };
 
   return (
-    <Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src={data.image} />
+    <Card className='card-container' style={{ width: '18rem' }}>
+      <Card.Img className='card-img' variant="top" src={data.image} />
       <Card.Body>
-        <Card.Title>{data.title}</Card.Title>
+        <Card.Title className='card-title'>{data.title}</Card.Title>
      
-        <Button variant="primary" onClick={toggleDetails}> {showDetails ? 'Ocultar detalles' : 'Ver detalles'}</Button>
+        <Button variant="primary"className='card-button' onClick={toggleDetails}> {showDetails ? 'Ocultar detalles' : 'Ver detalles'}</Button>
         {showDetails && (
         <article>
           <h4>Historia:</h4>

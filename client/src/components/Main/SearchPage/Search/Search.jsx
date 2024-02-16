@@ -54,17 +54,20 @@ const Search = ({search, press, info}) => {
   return <section>
 
       <h3>Si quieres salir pulsa</h3>
-      <button className="normal-button" onClick={logOut}>Cerrar sesión</button>
+      <button id="log-out" className="normal-button" onClick={logOut}>Cerrar sesión</button>
+      <svg id="svg-search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#392759" fillOpacity="0.7" d="M0,64L120,85.3C240,107,480,149,720,160C960,171,1200,149,1320,138.7L1440,128L1440,0L1320,0C1200,0,960,0,720,0C480,0,240,0,120,0L0,0Z"></path></svg>
+
 
       <article>
         <form onSubmit={handleSubmit}>
           <input className="inputs" type="text"  placeholder="buscador por título" name="title" value={input} onChange={(e) => setInput(e.target.value)}/>
-          <button className="submit-button"type="submit">Buscar</button>
+          <button
+          className="submit-button"type="submit">Buscar</button>
         </form>
       </article>
 
       <article>
-        <p>Clica en los botones para buscar por persoanajes</p>
+        <p>Clica en los botones para buscar por personajes o temáticas</p>
       </article> 
       <article>
         {createCharacter()}

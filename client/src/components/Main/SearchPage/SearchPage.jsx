@@ -6,6 +6,7 @@ import Search from "./Search/Search"
 import ClientTaleList from "./ClientTaleList/ClientTaleList"
 
 
+
 const SearchPage = () => {
 
   // SEARCH SETEA TITLE, CHARACTER
@@ -17,40 +18,10 @@ const SearchPage = () => {
 
   const [results, setResults] = useState([]) //guardamos resultados de las búsquedas, lo pasaremos por props para pintarlos
 
-  useEffect(()=>{
-    const getTalesByTitle = async () => {
-      try{
-        const response = await axios.get(`http://localhost:3000/api/titleTales/${title}`)
-        
-        setResults(response.data);
 
-      }catch(error){
-        console.log(error)
-      }
-    }
-    getTalesByTitle();
+  // primer use effect para conseguir todos los datos de los cuentos, con ellos, los pasamos al componente search que crea los botones. Al clicar los botones, se guarda su valor, se modifica el estado en search page y se lanza el use effect condicionado por ese parámetro
 
-  },[title]) //cuando cambie el title, del buscador se vuelve a lanzar la petición get
-
-
-  useEffect(()=>{
-    const getTalesByCharacter = async () => {
-      try{
-        const response = await axios.get(`http://localhost:3000/api/characterTales/${character}`)
-     
-        setResults(response.data);
-
-      }catch(error){
-        console.log(error)
-      }
-    }
-    getTalesByCharacter();
-  },[character]) 
-
-
-  //siempre que se renderice el componente se lanza la petición, para la lista de todos los cuentos. siempre actualizado ya que la unica forma de modificar estos datos es desde el admin, con lo cual cuando se vuelva a esta vista, se habrá vuelto a actualizar
-
-
+  
   useEffect(()=>{
     const getAllTales = async () => {
       try{
@@ -64,6 +35,49 @@ const SearchPage = () => {
     }
     getAllTales();
   },[]) 
+
+  useEffect(()=>{
+    // le añadimos el condicionante para que solo lance la petición cuando haya algún valor en el estado, sin ello, al renderizar el componente lanza la petición y crashea. de esta forma, se esperaráa que haya un valor en ese estado para lanzar el use effect
+    if(title){
+      const getTalesByTitle = async () => {
+     
+        try{
+          const response = await axios.get(`http://localhost:3000/api/titleTales/${title}`)
+          
+          setResults(response.data);
+  
+        }catch(error){
+          console.log(error)
+        }
+      }
+      getTalesByTitle();
+
+    }
+    
+
+  },[title]) //cuando cambie el title, del buscador se vuelve a lanzar la petición get
+
+
+  useEffect(()=>{
+    if(character){
+      const getTalesByCharacter = async () => {
+        try{
+          const response = await axios.get(`http://localhost:3000/api/characterTales/${character}`)
+       
+          setResults(response.data);
+  
+        }catch(error){
+          console.log(error)
+        }
+      }
+      getTalesByCharacter();
+    }
+    
+  },[character]) 
+
+
+
+ 
 
   return <section>
   

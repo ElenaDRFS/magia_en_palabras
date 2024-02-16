@@ -60,7 +60,7 @@ const LogIn = () => {
       <button className="submit-button"type="submit">Empezar</button>
  
  
-</form>;
+</form>
  <button className="normal-button" onClick={handleSignUp}>Registrar</button>
  </section>
 };
