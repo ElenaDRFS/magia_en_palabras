@@ -10,7 +10,7 @@ import { getFirestore } from "firebase/firestore";
 
   
   const firebaseConfig = {
-    apiKey: "AIzaSyAzdbLssyLksWCYqIL_w8MFYD1WcK56IYA",
+    apiKey: import.meta.env.VITE_API_KEY_FIREBASE,
     authDomain: "magia-en-palabras-efbd3.firebaseapp.com",
     projectId: "magia-en-palabras-efbd3",
     storageBucket: "magia-en-palabras-efbd3.appspot.com",
