@@ -9,8 +9,9 @@ import { getFirestore } from "firebase/firestore";
 // Your web app's Firebase configuration
 
   console.log(import.meta.env.VITE_API_KEY_FIREBASE)
+
   const firebaseConfig = {
-    apiKey: import.meta.env.VITE_API_KEY_FIREBASE,
+    apiKey: import.meta.env.VITE_API_KEY_FIREBASE ||'test',
     authDomain: "magia-en-palabras-efbd3.firebaseapp.com",
     projectId: "magia-en-palabras-efbd3",
     storageBucket: "magia-en-palabras-efbd3.appspot.com",
