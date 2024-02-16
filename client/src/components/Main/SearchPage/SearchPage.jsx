@@ -17,38 +17,7 @@ const SearchPage = () => {
 
   const [results, setResults] = useState([]) //guardamos resultados de las búsquedas, lo pasaremos por props para pintarlos
 
-  useEffect(()=>{
-    const getTalesByTitle = async () => {
-      try{
-        const response = await axios.get(`/api/titleTales/${title}`)
-        
-        setResults(response.data);
 
-      }catch(error){
-        console.log(error)
-      }
-    }
-    getTalesByTitle();
-
-  },[title]) //cuando cambie el title, del buscador se vuelve a lanzar la petición get, lo setea search
-
-
-  useEffect(()=>{
-    const getTalesByCharacter = async () => {
-      try{
-        const response = await axios.get(`/api/characterTales/${character}`)
-     
-        setResults(response.data);
-
-      }catch(error){
-        console.log(error)
-      }
-    }
-    getTalesByCharacter();
-  },[character]) 
-
-
-  //para mantener los botones actualizados hay que lanzar la peticiòn de todos los cuentos siempre, para obtener todos los protagonistas y crear los botones
 
 
   useEffect(()=>{
@@ -64,6 +33,45 @@ const SearchPage = () => {
     }
     getAllTales();
   },[]) 
+
+  useEffect(()=>{
+    // le añadimos el condicionante para que solo lance la petición cuando haya algún valor en el estado, sin ello, al renderizar el componente lanza la petición y crashea. de esta forma, se esperaráa que haya un valor en ese estado para lanzar el use effect
+    if(title){
+      const getTalesByTitle = async () => {
+     
+        try{
+          const response = await axios.get(`http://localhost:3000/api/titleTales/${title}`)
+          
+          setResults(response.data);
+  
+        }catch(error){
+          console.log(error)
+        }
+      }
+      getTalesByTitle();
+
+    }
+    
+
+  },[title]) //cuando cambie el title, del buscador se vuelve a lanzar la petición get
+
+
+  useEffect(()=>{
+    if(character){
+      const getTalesByCharacter = async () => {
+        try{
+          const response = await axios.get(`http://localhost:3000/api/characterTales/${character}`)
+       
+          setResults(response.data);
+  
+        }catch(error){
+          console.log(error)
+        }
+      }
+      getTalesByCharacter();
+    }
+    
+  },[character]) 
 
   return <section>
   
